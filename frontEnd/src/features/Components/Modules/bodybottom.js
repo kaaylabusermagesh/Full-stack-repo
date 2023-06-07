@@ -95,6 +95,7 @@ const Bodybottom = ({ handleClickShare }) => {
   };
 
   const [arrayList] = useState(Data.Tabledata);
+
   const data1 = [
     ["Month", "Binance"],
     ["Jan", 1],
@@ -298,7 +299,7 @@ const Bodybottom = ({ handleClickShare }) => {
                 handleChangeTextfield(e, "price");
               }}
               error={priceError}
-              helperText={priceError === true ? "Price is reuired" : ""}
+              helperText={priceError === true ? "Price is required" : ""}
             />
           </Grid>
           <Grid className="modal_textfield_grid">
@@ -311,7 +312,7 @@ const Bodybottom = ({ handleClickShare }) => {
                 handleChangeTextfield(e, "change");
               }}
               error={changeError}
-              helperText={changeError === true ? "Change is reuired" : ""}
+              helperText={changeError === true ? "Change is required" : ""}
             />
           </Grid>
           <Grid className="modal_textfield_grid">
@@ -325,7 +326,7 @@ const Bodybottom = ({ handleClickShare }) => {
               }}
               error={changeHoursError}
               helperText={
-                changeHoursError === true ? "Change Hours is reuired" : ""
+                changeHoursError === true ? "Change Hours is required" : ""
               }
             />
           </Grid>

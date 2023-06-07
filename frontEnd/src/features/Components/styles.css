@@ -59,3 +59,23 @@
   justify-content: center;
   align-items: center;
 }
+
+.asset_form_subgrid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.asset_form_subgridinside {
+  margin-left: 15px;
+}
+.asset_form_button_grid {
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  margin-top: 20px;
+  margin-left: 55%;
+}
+.asset_form_savebutton_grid {
+  margin-left: 15px;
+}
