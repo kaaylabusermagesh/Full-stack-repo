@@ -1,0 +1,114 @@
+{
+  "Carddata": [
+    {
+      "avatar": "B",
+      "avatarColor": "#F39B40",
+      "name": "Bitcoin",
+      "code": "0.10",
+      "price": "10",
+      "percentage": "10",
+      "percentageColor": "green",
+      "percentagebg": "#E1EFEB"
+    },
+    {
+      "avatar": "E",
+      "avatarColor": "#5F85F1",
+      "name": "Ethereum",
+      "code": "0.10",
+      "price": "10",
+      "percentage": "10",
+      "percentageColor": "green",
+      "percentagebg": "#E1EFEB"
+    },
+    {
+      "avatar": "A",
+      "avatarColor": "#F34033",
+      "name": "Avalanche",
+      "code": "0.10",
+      "price": "10",
+      "percentage": "10",
+      "percentageColor": "green",
+      "percentagebg": "#E1EFEB"
+    }
+  ],
+  "Tabledata": [
+    {
+      "avatar": "B",
+      "avatarColor": "#F39B40",
+      "abbre": "BTC",
+      "name": "Bitcoin",
+      "price": 10,
+      "change": 0.1,
+      "changehours": 0.1
+    },
+    {
+      "avatar": "E",
+      "avatarColor": "#617FF2",
+      "abbre": "ETH",
+      "name": "Ethereum",
+      "price": 10,
+      "change": 0.1,
+      "changehours": 0.1
+    },
+    {
+      "avatar": "A",
+      "avatarColor": "#7142FE",
+      "abbre": "ADA",
+      "name": "Caidona",
+      "price": 10,
+      "change": 0.1,
+      "changehours": 0.1
+    },
+    {
+      "avatar": "A",
+      "avatarColor": "#F1706E",
+      "abbre": "Avax",
+      "name": "Avalanche",
+      "price": 10,
+      "change": 0.1,
+      "changehours": 0.1
+    }
+  ],
+  "currencies": [
+    {
+      "avatar": "B",
+      "abbre": "BTC",
+      "avatarColor": "#F39B40",
+      "name": "Bitcoin",
+      "percentage": "1.00"
+    },
+    {
+      "avatar": "E",
+      "abbre": "ETH",
+      "avatarColor": "#8451F4",
+      "name": "Ethereum",
+      "percentage": "1.00"
+    },
+    {
+      "avatar": "U",
+      "abbre": "USDT",
+      "avatarColor": "#C045FF",
+      "name": "Tether",
+      "percentage": "1.00"
+    }
+  ],
+  "CardList": [
+    {
+      "avatar": "I",
+      "avatarColor": "#FFE1E2",
+      "name": "Income",
+      "value": "USD 5,000"
+    },
+    {
+      "avatar": "E",
+      "avatarColor": "#EAEEED",
+      "name": "Expense",
+      "value": "USD 5,000"
+    }
+  ],
+  "Piedata": [
+    { "title": "One", "value": 10, "color": "#E38627" },
+    { "title": "Two", "value": 15, "color": "#C13C37" },
+    { "title": "Three", "value": 20, "color": "#6A2135" }
+  ]
+}
