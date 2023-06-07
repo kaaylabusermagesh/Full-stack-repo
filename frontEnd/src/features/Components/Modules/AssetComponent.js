@@ -100,7 +100,7 @@ function Assets() {
   return (
     <Box className="asset_form_mainbox">
       <Grid className="asset_form_subgrid">
-        <Typography>Asset Form</Typography>
+        <Typography>Dashboard Top Card</Typography>
       </Grid>
       <Grid className="asset_form_subgrid">
         <Grid>
