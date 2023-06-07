@@ -1,8 +1,9 @@
 import { Avatar, Box, Grid, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Bodybottom from "./bodybottom";
 import Data from "../data.json";
 import { Chart } from "react-google-charts";
+import axios from "axios";
 
 export const data = [
   ["Task", "Hours per Day"],
@@ -36,6 +37,12 @@ const BodyComponent = () => {
   };
   const [arrayList, setArrayList] = useState(Data.Tabledata);
 
+  useEffect(() => {
+    axios.get("http://localhost:8081/").then(() => {
+      console.log("got the details");
+    });
+  }, []);
+
   const handleClickShare = (
     e,
     val,
@@ -48,12 +55,24 @@ const BodyComponent = () => {
     setChangeHoursError,
     setOpenModal
   ) => {
+    console.log("Testtttttttttttttttttttttttttttt");
     if (price === "" || change === "" || changeHours === "") {
       setPriceError(true);
       setChangeError(true);
       setChangeHoursError(true);
       return;
     }
+
+    axios
+      .post("http://localhost:8081/create", {
+        price: parseInt(price),
+        percentage: parseInt(change),
+        totalPercentage: parseInt(changeHours),
+      })
+      .then((res) => {
+        console.log("Success", res);
+      })
+      .catch((err) => console.log("error", err));
 
     setOpenModal(false);
     var arrayListSample = [...arrayList];

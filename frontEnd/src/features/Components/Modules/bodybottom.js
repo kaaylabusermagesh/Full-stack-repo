@@ -63,11 +63,11 @@ function a11yProps(index) {
 
 const Bodybottom = ({ handleClickShare }) => {
   const [value, setValue] = React.useState(0);
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState();
   const [priceError, setPriceError] = useState(false);
-  const [change, setChange] = useState("");
+  const [change, setChange] = useState();
   const [changeError, setChangeError] = useState(false);
-  const [changeHours, setChangeHours] = useState("");
+  const [changeHours, setChangeHours] = useState();
   const [changeHoursError, setChangeHoursError] = useState(false);
   const [title, setTitle] = useState("");
   const [openModal, setOpenModal] = React.useState(false);
