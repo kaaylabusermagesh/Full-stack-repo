@@ -1,9 +1,14 @@
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import "../styles.css";
 import axios from "axios";
+import "../../styles.css";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function Assets() {
+function AssetsForm({ rows }) {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [avatar, setAvatar] = useState("");
   const [avatarColor, setAvatarColor] = useState("");
   const [name, setName] = useState("");
@@ -16,16 +21,35 @@ function Assets() {
   const [percentageError, setPercentageError] = useState(false);
   const [percentageColor, setPercentageColor] = useState("");
   const [percentageBg, setPercentageBg] = useState("");
+  const [buttonBool, setButtonBool] = useState(false);
+  const [updateId, setUpdateId] = useState();
   const handleClickCancelForm = () => {
-    console.log("This is form for cancel");
-    setAvatar("");
-    setAvatarColor("");
-    setName("");
-    setCode("");
-    setPrice("");
-    setPercentage("");
-    setPercentageColor("");
-    setPercentageBg("");
+    if (location.state) {
+      if (location.state.name !== "") {
+        navigate("/assets");
+      }
+    } else {
+      setAvatar("");
+      setAvatarColor("");
+      setName("");
+      setCode("");
+      setPrice("");
+      setPercentage("");
+      setPercentageColor("");
+      setPercentageBg("");
+      if (
+        avatar === "" &&
+        avatarColor === "" &&
+        name === "" &&
+        code === "" &&
+        price === "" &&
+        percentage === "" &&
+        percentageColor === "" &&
+        percentageBg === ""
+      ) {
+        navigate("/assets");
+      }
+    }
   };
   const handleClickSaveForm = () => {
     console.log("This is form for save");
@@ -34,6 +58,25 @@ function Assets() {
       setPriceError(true);
       setCodeError(true);
       setPercentageError(true);
+    }
+
+    if (location.state) {
+      if (location.state.name !== "") {
+        console.log("This is update scenario");
+        console.log("This is updateId", updateId);
+        axios
+          .put("http://localhost:8081/updatedashboard", {
+            name: name,
+            id: updateId,
+            code: parseInt(code),
+            price: parseInt(price),
+            percentage: parseInt(percentage),
+          })
+          .then((res) => {
+            console.log("Success saved dashboard form", res);
+          })
+          .catch((err) => console.log("error", err));
+      }
     } else {
       axios
         .post("http://localhost:8081/createdashboard", {
@@ -96,7 +139,22 @@ function Assets() {
 
   useEffect(() => {
     console.log("This is avatar", name);
-  });
+    if (location.state) {
+      if (location.state.name !== "") {
+        const value = location.state.name;
+        setAvatar(value.avatar);
+        setAvatarColor(value.avatarcolor);
+        setName(value.name);
+        setCode(value.code);
+        setPrice(value.price);
+        setPercentage(value.percentage);
+        setPercentageColor(value.percentagecolor);
+        setPercentageBg(value.percentagebg);
+        setUpdateId(value.id);
+        setButtonBool(true);
+      }
+    }
+  }, []);
   return (
     <Box className="asset_form_mainbox">
       <Grid className="asset_form_subgrid">
@@ -112,6 +170,7 @@ function Assets() {
             inputProps={{ maxLength: 1 }}
             type="text"
             value={avatar}
+            disabled={buttonBool === true ? true : false}
           />
         </Grid>
         <Grid className="asset_form_subgridinside">
@@ -121,6 +180,7 @@ function Assets() {
               handleChangeTextfield(e, "avatarcolor");
             }}
             value={avatarColor}
+            disabled={buttonBool === true ? true : false}
           />
         </Grid>
       </Grid>
@@ -185,6 +245,7 @@ function Assets() {
               handleChangeTextfield(e, "percentagecolor");
             }}
             value={percentageColor}
+            disabled={buttonBool === true ? true : false}
           />
         </Grid>
         <Grid className="asset_form_subgridinside">
@@ -194,6 +255,7 @@ function Assets() {
               handleChangeTextfield(e, "percentagebg");
             }}
             value={percentageBg}
+            disabled={buttonBool === true ? true : false}
           />
         </Grid>
       </Grid>
@@ -205,7 +267,7 @@ function Assets() {
         </Grid>
         <Grid className="asset_form_savebutton_grid">
           <Button onClick={handleClickSaveForm} variant="contained">
-            Save
+            {buttonBool === true ? "Update" : "Save"}
           </Button>
         </Grid>
       </Grid>
@@ -213,4 +275,4 @@ function Assets() {
   );
 }
 
-export default Assets;
+export default AssetsForm;

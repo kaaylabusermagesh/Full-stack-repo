@@ -38,8 +38,8 @@ const BodyComponent = () => {
   const [arrayList, setArrayList] = useState(Data.Tabledata);
 
   useEffect(() => {
-    axios.get("http://localhost:8081/").then(() => {
-      console.log("got the details");
+    axios.get("http://localhost:8081/").then((res) => {
+      console.log("got the details", res.data);
     });
   }, []);
 

@@ -14,6 +14,7 @@ const db = mysql.createConnection({
   database: "dashboardsystem",
 });
 
+//Sample get API for learning purpose
 app.get("/", (req, res) => {
   const sql = "SELECT * FROM dashboard";
 
@@ -23,12 +24,13 @@ app.get("/", (req, res) => {
   });
 });
 
+//Sample create API for learning purpose
 app.post("/create", (req, res) => {
   const price = req.body.price;
   const percentage = req.body.percentage;
   const totalPercentage = req.body.totalPercentage;
 
-  //Sending data to database
+  //Inserting data to database
   db.query(
     "INSERT INTO dashboard (`price`,`change`,`changehours`) VALUES (?,?,?)",
     [price, percentage, totalPercentage],
@@ -42,6 +44,7 @@ app.post("/create", (req, res) => {
   );
 });
 
+// dashboard Create API
 app.post("/createdashboard", (req, res) => {
   const sql =
     "INSERT INTO dashboardform (`avatar`,`avatarcolor`,`name`,`code`,`price`,`percentage`,`percentagecolor`,`percentagebg`) VALUES (?)";
@@ -55,19 +58,44 @@ app.post("/createdashboard", (req, res) => {
     req.body.percentagecolor,
     req.body.percentagebg,
   ];
-
-  //Sending data to database
   db.query(sql, [values], (err, result) => {
     if (err) return res.json(err);
     return res.json(result);
   });
 });
 
+//dashboard get API
 app.get("/getdashboardform", (req, res) => {
   const sql = "SELECT * FROM dashboardform";
-
   db.query(sql, (err, result) => {
     if (err) return res.json({ Messgae: "Error inside server" });
+    return res.json(result);
+  });
+});
+
+//dashboard update API
+app.put("/updatedashboard", (req, res) => {
+  db.query(
+    "UPDATE dashboardform SET name=?,code=?,price=?,percentage=? WHERE id=?",
+    [
+      req.body.name,
+      req.body.code,
+      req.body.price,
+      req.body.percentage,
+      req.body.id,
+    ],
+    (err, result) => {
+      if (err) return res.json(err);
+      return res.json(result);
+    }
+  );
+});
+
+// dashboard delete API
+app.delete("/deletedashboard/:id", (req, res) => {
+  const id = req.params.id;
+  db.query("DELETE FROM dashboardform WHERE id=?", id, (err, result) => {
+    if (err) return res.json(err);
     return res.json(result);
   });
 });
