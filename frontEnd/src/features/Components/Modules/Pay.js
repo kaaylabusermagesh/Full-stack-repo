@@ -18,45 +18,44 @@ export default function Pay() {
 
   const handleChangeField = (e) => {
     const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
-    console.log(value, "1231234567890", name, "valuesssssssss", values);
+    // setValues({ ...values, [name]: value });
 
-    // var test = { ...values, [name]: value };
-    // console.log("This is console for test", test);
-    // if (values.fname !== "") {
-    //   test.fnameError = false;
-    // }
-    // if (values.lname !== "") {
-    //   test.lnameError = false;
-    // }
-    // if (values.mobile !== "") {
-    //   test.mobileError = false;
-    // }
-    // if (values.email !== "") {
-    //   test.emailError = false;
-    // }
-    // setValues(test);
+    var test = { ...values, [name]: value };
+    console.log("This is console for test", test);
+    if (test.fname !== "") {
+      test.fnameError = false;
+    }
+    if (test.lname !== "") {
+      test.lnameError = false;
+    }
+    if (test.mobile !== "") {
+      test.mobileError = false;
+    }
+    if (test.email !== "") {
+      test.emailError = false;
+    }
+    setValues(test);
   };
 
   const handleClickSave = (e) => {
     var test = { ...values };
     console.log("This is the test console", test);
-    if (values.fname === "") {
+    if (test.fname === "") {
       test.fnameError = true;
     } else {
       test.fnameError = false;
     }
-    if (values.lname === "") {
+    if (test.lname === "") {
       test.lnameError = true;
     } else {
       test.lnameError = false;
     }
-    if (values.mobile === "") {
+    if (test.mobile === "") {
       test.mobileError = true;
     } else {
       test.mobileError = false;
     }
-    if (values.email === "") {
+    if (test.email === "") {
       test.emailError = true;
     } else {
       test.emailError = false;

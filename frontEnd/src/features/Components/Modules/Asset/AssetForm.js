@@ -53,13 +53,28 @@ function AssetsForm({ rows }) {
   };
   const handleClickSaveForm = () => {
     console.log("This is form for save");
-    if (price === "" || code === "" || percentage === "" || name === "") {
-      setNameError(true);
+    if (price === "") {
       setPriceError(true);
+    } else {
+      setPriceError(false);
+    }
+    if (code === "") {
       setCodeError(true);
+    } else {
+      setCodeError(false);
+    }
+    if (percentage === "") {
       setPercentageError(true);
+    } else {
+      setPercentageError(false);
+    }
+    if (name === "") {
+      setNameError(true);
+    } else {
+      setNameError(false);
     }
 
+    if (price === "" || code === "" || percentage === "" || name === "") return;
     if (location.state) {
       if (location.state.name !== "") {
         console.log("This is update scenario");
@@ -134,6 +149,16 @@ function AssetsForm({ rows }) {
         break;
       default:
         console.log("This is switch");
+    }
+
+    if (price !== "") {
+      setPriceError(false);
+    } else if (code !== "") {
+      setCodeError(false);
+    } else if (percentage !== "") {
+      setPercentageError(false);
+    } else if (name !== "") {
+      setNameError(false);
     }
   };
 
