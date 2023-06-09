@@ -1,6 +1,6 @@
 import "../styles.css";
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const initialState = {
   fname: "",

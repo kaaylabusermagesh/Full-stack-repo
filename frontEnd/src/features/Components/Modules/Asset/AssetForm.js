@@ -178,6 +178,8 @@ function AssetsForm({ rows }) {
         setUpdateId(value.id);
         setButtonBool(true);
       }
+    } else {
+      console.log("Else condition");
     }
   }, []);
   return (
