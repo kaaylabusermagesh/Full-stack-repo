@@ -1,8 +1,10 @@
-const express = require("express");
+var cors = require("cors");
 const mysql = require("mysql");
+const express = require("express");
+
 //Initialize the express.
 const app = express();
-var cors = require("cors");
+
 app.use(cors());
 app.use(express.json());
 

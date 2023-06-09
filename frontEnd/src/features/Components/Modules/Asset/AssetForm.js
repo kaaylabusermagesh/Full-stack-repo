@@ -12,16 +12,16 @@ function AssetsForm({ rows }) {
   const [avatar, setAvatar] = useState("");
   const [avatarColor, setAvatarColor] = useState("");
   const [name, setName] = useState("");
-  const [nameError, setNameError] = useState(false);
   const [code, setCode] = useState("");
-  const [codeError, setCodeError] = useState(false);
   const [price, setPrice] = useState("");
-  const [priceError, setPriceError] = useState(false);
   const [percentage, setPercentage] = useState("");
-  const [percentageError, setPercentageError] = useState(false);
   const [percentageColor, setPercentageColor] = useState("");
   const [percentageBg, setPercentageBg] = useState("");
+  const [nameError, setNameError] = useState(false);
+  const [codeError, setCodeError] = useState(false);
+  const [priceError, setPriceError] = useState(false);
   const [buttonBool, setButtonBool] = useState(false);
+  const [percentageError, setPercentageError] = useState(false);
   const [updateId, setUpdateId] = useState();
   const handleClickCancelForm = () => {
     if (location.state) {
@@ -115,7 +115,6 @@ function AssetsForm({ rows }) {
             setPercentage("");
             setPercentageColor("");
             setPercentageBg("");
-            alert("Saved Successfully");
           }
         })
         .catch((err) => console.log("error", err));
