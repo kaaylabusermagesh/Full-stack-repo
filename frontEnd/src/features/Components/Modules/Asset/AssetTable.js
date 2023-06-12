@@ -33,6 +33,7 @@ function AssetTable() {
   };
   const handleClickNewForm = () => {
     setAssetBool(true);
+    navigate("/assetsform");
   };
   const handleClickDeleteForm = (e, i, row) => {
     axios.delete(`http://localhost:8081/deletedashboard/${row.id}`).then(() => {
@@ -100,7 +101,7 @@ function AssetTable() {
           </TableContainer>
         </Box>
       ) : (
-        <AssetsForm rows={rows} />
+        <AssetsForm />
       )}
     </Box>
   );

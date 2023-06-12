@@ -5,7 +5,7 @@ import "../../styles.css";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function AssetsForm({ rows }) {
+function AssetsForm() {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -89,6 +89,10 @@ function AssetsForm({ rows }) {
           })
           .then((res) => {
             console.log("Success saved dashboard form", res);
+            alert("Form has be updated successfully");
+            setTimeout(() => {
+              navigate("/assets");
+            }, "1000");
           })
           .catch((err) => console.log("error", err));
       }
@@ -115,6 +119,10 @@ function AssetsForm({ rows }) {
             setPercentage("");
             setPercentageColor("");
             setPercentageBg("");
+            alert("Form has be created successfully");
+            setTimeout(() => {
+              navigate("/assets");
+            }, "1000");
           }
         })
         .catch((err) => console.log("error", err));

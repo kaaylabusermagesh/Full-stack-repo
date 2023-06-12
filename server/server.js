@@ -1,10 +1,8 @@
 var cors = require("cors");
 const mysql = require("mysql");
 const express = require("express");
-
 //Initialize the express.
 const app = express();
-
 app.use(cors());
 app.use(express.json());
 
@@ -19,7 +17,6 @@ const db = mysql.createConnection({
 //Sample get API for learning purpose
 app.get("/", (req, res) => {
   const sql = "SELECT * FROM dashboard";
-
   db.query(sql, (err, result) => {
     if (err) return res.json({ Messgae: "Error inside server" });
     return res.json(result);
@@ -31,7 +28,6 @@ app.post("/create", (req, res) => {
   const price = req.body.price;
   const percentage = req.body.percentage;
   const totalPercentage = req.body.totalPercentage;
-
   //Inserting data to database
   db.query(
     "INSERT INTO dashboard (`price`,`change`,`changehours`) VALUES (?,?,?)",
