@@ -10,8 +10,10 @@ import Settings from "./Modules/Settings";
 import Invitefriends from "./Modules/Invitefriends";
 import AssetTable from "./Modules/Asset/AssetTable";
 import AssetsForm from "./Modules/Asset/AssetForm";
+import Register from "./Modules/Common/Register";
+import Login from "./Modules/Common/Login";
 
-function Assignment() {
+function Main() {
   return (
     <BrowserRouter>
       <Grid className="main_gridfor_body">
@@ -24,10 +26,12 @@ function Assignment() {
           <Route path="/invite" element={<Invitefriends />}></Route>
           <Route path="/settings" element={<Settings />}></Route>
           <Route path="/assetsform" element={<AssetsForm />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/signup" element={<Register />}></Route>
         </Routes>
       </Grid>
     </BrowserRouter>
   );
 }
 
-export default Assignment;
+export default Main;

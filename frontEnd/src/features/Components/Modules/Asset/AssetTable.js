@@ -19,15 +19,11 @@ function AssetTable() {
   const navigate = useNavigate();
   React.useEffect(() => {
     axios.get("http://localhost:8081/getdashboardform").then((res) => {
-      console.log("got the details");
       setRows(res.data);
     });
   }, []);
 
   const handleClickEditForm = (e, i, val) => {
-    console.log("This is e", e);
-    console.log("This is index", i);
-    console.log("This is id", val);
     setAssetBool(true);
     navigate("/assetsform", { state: { name: val } });
   };
@@ -38,6 +34,10 @@ function AssetTable() {
   const handleClickDeleteForm = (e, i, row) => {
     axios.delete(`http://localhost:8081/deletedashboard/${row.id}`).then(() => {
       console.log("Deleted successfully");
+      alert("Record has been deleted successfully");
+      setTimeout(() => {
+        window.location.reload();
+      }, "1000");
     });
   };
   return (

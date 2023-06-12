@@ -1,0 +1,22 @@
+.login_grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  width: 100%;
+}
+.login_mainbox {
+  margin-top: 10%;
+}
+.login_buttongrid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.login_typogrid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}

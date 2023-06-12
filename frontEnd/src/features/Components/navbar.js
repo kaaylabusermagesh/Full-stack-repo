@@ -23,7 +23,7 @@ import PaymentRoundedIcon from "@mui/icons-material/PaymentRounded";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import GroupAddRoundedIcon from "@mui/icons-material/GroupAddRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
-import Assignment from "./main";
+import Main from "./main";
 
 const drawerWidth = 230;
 
@@ -224,7 +224,7 @@ export default function Navbar() {
       >
         <DrawerHeader />
         <Grid className="main_gridfor_body">
-          <Assignment />
+          <Main />
         </Grid>
       </Box>
     </Box>

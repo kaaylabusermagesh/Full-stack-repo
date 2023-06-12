@@ -18,8 +18,6 @@ export default function Pay() {
 
   const handleChangeField = (e) => {
     const { name, value } = e.target;
-    // setValues({ ...values, [name]: value });
-
     var test = { ...values, [name]: value };
     console.log("This is console for test", test);
     if (test.fname !== "") {

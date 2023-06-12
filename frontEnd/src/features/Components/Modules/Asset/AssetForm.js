@@ -188,7 +188,7 @@ function AssetsForm() {
     } else {
       console.log("Else condition");
     }
-  }, []);
+  });
   return (
     <Box className="asset_form_mainbox">
       <Grid className="asset_form_subgrid">
